@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const verifyToken = (req, res, next) => {
+exports.verifyToken = (req, res, next) => {
     const token = req.header('Authorization').replace('Bearer ', '');
     if (!token) {
         return res.status(401).json({ message: 'No token, authorization denied' });
@@ -14,11 +14,10 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-const isAdmin = (req, res, next) => {
+
+exports.isAdmin = (req, res, next) => {
     if (req.user.role !== 'admin') {
         return res.status(403).json({ message: 'Access denied' });
     }
     next();
 };
-
-module.exports = { verifyToken, isAdmin };
