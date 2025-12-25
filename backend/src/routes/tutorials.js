@@ -8,7 +8,6 @@ router.get('/', tutorialController.getAll);
 router.get('/:id', tutorialController.getById);
 
 // protected 
-
 router.post('/', verifyToken, tutorialController.create);
 router.put('/:id', verifyToken, tutorialController.update);
 router.delete('/:id', verifyToken, tutorialController.remove);
