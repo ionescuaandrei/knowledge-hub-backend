@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { unlink } = require('../routes/tutorials');
 
 const tutorialSchema = new mongoose.Schema({
     title: {
@@ -16,10 +17,14 @@ const tutorialSchema = new mongoose.Schema({
       type: Boolean,
       default: false
     },
-    author: {
+    authorId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true
+    },
+    authorEmail: {
+      type: String,
+      default: 'unknown'
     },
     sourceLink: {
       type: String,
@@ -33,4 +38,4 @@ const tutorialSchema = new mongoose.Schema({
     timestamps: true
   });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Tutorial', tutorialSchema);
