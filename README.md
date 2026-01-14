@@ -2,6 +2,8 @@
 
 **KnowledgeHub** is a MEAN stack web application designed for academic and professional knowledge sharing. It allows experts to create tutorials while providing students a centralized repository to search and learn.
 
+* Design(https://stitch.withgoogle.com/projects/16073747385846946227)
+
 ---
 
 ## 🚀 Features
