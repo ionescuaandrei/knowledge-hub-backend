@@ -33,6 +33,10 @@ const tutorialSchema = new mongoose.Schema({
     coverImage: {
       type: String, 
       default: null
+    },
+    category:{
+      type: String,
+      required: true
     }
   }, {
     timestamps: true

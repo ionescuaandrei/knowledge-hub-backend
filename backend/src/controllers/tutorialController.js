@@ -2,7 +2,7 @@ const Tutorial = require('../models/Tutorial');
 
 exports.create = async (req, res) => {
   try {
-    const { title, description, published, sourceLink, coverImage } = req.body;
+    const { title, description, published, sourceLink, coverImage, category } = req.body;
     if (!title || !description) {
       return res.status(400).json({ message: 'Title and description are required' });
     }
@@ -18,6 +18,7 @@ exports.create = async (req, res) => {
       coverImage: coverImage || null,
       authorId: authorId,
       authorEmail: authorEmail,
+      category: category
     });
 
     await tutorial.save();
