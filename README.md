@@ -49,6 +49,7 @@
 ## 🏗️ Database Schema (Mongoose)
 
 ### User Model
+
 '''
  email: {
       type: String,
@@ -70,7 +71,7 @@
   }, {
     timestamps: true 
   });
-  '''
+'''
 
 ### Tutorial Model
 '''
