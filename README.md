@@ -50,7 +50,7 @@
 
 ### User Model
 
-''
+```javascript
  email: {
       type: String,
       required: true,
@@ -71,10 +71,11 @@
   }, {
     timestamps: true 
   });
-''
+```
 
 ### Tutorial Model
-'''
+
+```javascript
  title: {
       type: String,
       required: true,
@@ -110,7 +111,7 @@
   }, {
     timestamps: true
   })
-''
+```
 
 ---
 
