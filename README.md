@@ -42,25 +42,74 @@
 | `POST` | `/api/tutorials` | Create a new tutorial | Private (Logged In) |
 | `PUT` | `/api/tutorials/:id` | Update tutorial by ID | Private (Owner Only) |
 | `DELETE` | `/api/tutorials/:id` | Delete tutorial by ID | Private (Owner Only) |
-| `DELETE` | `/api/tutorials` | Delete all tutorials | Private (Admin Only) |
-| `GET` | `/api/tutorials?title=[k]` | Search tutorials by keyword | Public |
-| `GET` | `/api/my-tutorials` | Get tutorials by current user | Private (Logged In) |
+| `GET` | `/api/tutorials/user/me` | Get tutorials by current user | Private (Logged In) |
 
 ---
 
 ## 🏗️ Database Schema (Mongoose)
 
 ### User Model
-- `username`: String (Unique)
-- `email`: String (Unique)
-- `password`: String (Hashed)
-- `role`: String (user/creator)
+'''
+ email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 6
+    },
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user'
+    }
+  }, {
+    timestamps: true 
+  });
+  '''
 
 ### Tutorial Model
-- `title`: String
-- `description`: String
-- `published`: Boolean
-- `author`: ObjectId (Refers to `User` model)
+'''
+ title: {
+      type: String,
+      required: true,
+      trim: true,
+      maxlength: 200
+    },
+    description: {
+      type: String,
+      required: true,
+      maxlength: 2000
+    },
+    published: {
+      type: Boolean,
+      default: false
+    },
+    authorId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    authorEmail: {
+      type: String,
+      default: 'unknown'
+    },
+    sourceLink: {
+      type: String,
+      trim: true
+    },
+    coverImage: {
+      type: String, 
+      default: null
+    }
+  }, {
+    timestamps: true
+  })
+''
 
 ---
 
