@@ -119,8 +119,8 @@
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/yourusername/knowledgehub.git](https://github.com/yourusername/knowledgehub.git)
-    cd knowledgehub
+    git clone [https://github.com/ionesscuaandrei/knowledge-hub-backend.git](https://github.com/ionesscuaandrei/knowledge-hub-backend.git)
+    cd knowledge-hub-backend
     ```
 
 2.  **Server Setup**
